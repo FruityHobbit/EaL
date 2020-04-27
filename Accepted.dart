@@ -4,13 +4,16 @@ import 'dart:async';
 import 'package:firebase_database/firebase_database.dart';
 
 
-void main() => runApp(Accepted());
+void main() => runApp(Page2());
 
-class Accepted extends StatelessWidget {
+class Page2 extends StatelessWidget {
   @override
+
+  //Check Box
+  bool agreeVal = false;
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'All Requests',
+      title: 'Employer a Lawyer',
       debugShowCheckedModeBanner: false,
       home: MyPage(),
     );
@@ -25,10 +28,26 @@ class MyPage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyPage> {
+  bool rememberMe = false;
+
+  void _onRememberMeChanged(bool newValue) => setState((){
+    rememberMe = newValue;
+
+    if(rememberMe){
+      //Functionality that remembers the user
+    } else{
+      //forget the user
+    }
+  });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('All Requests')),
+      appBar: AppBar(title: Text('Accepted Requests', style: TextStyle(
+        color:Colors.black,
+      )
+
+      )),
       body: _buildBody(context),
     );
   }
@@ -63,25 +82,42 @@ class _MyHomePageState extends State<MyPage> {
             border: Border.all(color: Colors.grey),
             borderRadius: BorderRadius.circular(5.0),
           ),
+
           child: ListTile(
             title: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(record.lastName,style: TextStyle(color: Colors.black, fontSize: 16.0),),
-                  Text(record.firstName,style: TextStyle(color: Colors.black, fontSize: 16.0),),
-                  Text(record.phoneNumber,style: TextStyle(color: Colors.black, fontSize: 16.0),),
-                  Text(record.caseNumber,style: TextStyle(color: Colors.black, fontSize: 16.0),),
-                  Text(record.summary,style: TextStyle(color: Colors.black, fontSize: 16.0),),
-                  Text(record.expect,style: TextStyle(color: Colors.black, fontSize: 16.0),),
+                children: <Widget>[
+                  Text(
+                    record.lastName,
+                    style: TextStyle(color: Colors.black, fontSize: 16.0),
+                  ),
+                  Text(record.firstName,
+                    style: TextStyle(color: Colors.black, fontSize: 16.0),
+                  ),
+                  Text(record.phoneNumber,
+                    style: TextStyle(color: Colors.black, fontSize: 16.0),
+                  ),
+                  Text(record.caseNumber,
+                    style: TextStyle(color: Colors.black, fontSize: 16.0),
+                  ),
+                  Text(record.summary,
+                    style: TextStyle(color: Colors.black, fontSize: 16.0),
+                  ),
+                  Text(record.expect,
+                    style: TextStyle(color: Colors.black, fontSize: 16.0),
+                  ),
+                  Checkbox(
+                    value: rememberMe,
+                    onChanged: _onRememberMeChanged,
+                  ),
                 ],
-        ),
+            ),
 
           ),
         ));
   }
 }
-
 
 class Record {
   final String firstName;
