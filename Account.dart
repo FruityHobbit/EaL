@@ -14,7 +14,7 @@ class Account extends StatelessWidget {
 }
 
 class UserProfilePage extends StatelessWidget {
-  final String _fullName = "Test Testing";
+  final String _fullName = "Tom Cruise";
   final String _status = "Lawyer";
   final String _bio =
       "\"Stationed in the Kent, OH area.\"";
@@ -27,7 +27,7 @@ class UserProfilePage extends StatelessWidget {
       height: screenSize.height / 2.6,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage('https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80'),
+          image: NetworkImage('https://i1.wp.com/www.heyuguys.com/images/2015/06/Rogue-Nation1.jpg?w=1600&ssl=1'),
           fit: BoxFit.cover,
         ),
       ),
@@ -41,7 +41,7 @@ class UserProfilePage extends StatelessWidget {
         height: 140.0,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage('https://images.unsplash.com/photo-1436450412740-6b988f486c6b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80'),
+            image: NetworkImage('https://i.insider.com/5b7ebf372be4abc6518b521b?width=2500&format=jpeg&auto=webp'),
             fit: BoxFit.cover,
           ),
           borderRadius: BorderRadius.circular(80.0),
@@ -57,7 +57,7 @@ class UserProfilePage extends StatelessWidget {
   Widget _buildFullName() {
     TextStyle _nameTextStyle = TextStyle(
       fontFamily: 'Roboto',
-      color: Colors.white,
+      color: Colors.black,
       fontSize: 28.0,
       fontWeight: FontWeight.w700,
     );
@@ -126,9 +126,9 @@ class UserProfilePage extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          _buildStatItem("Accepted Listings", _followers),
-          _buildStatItem("Posted Listings", _posts),
-          _buildStatItem("Reviews", _scores),
+          buildStatItem("Accepted Listings", followers),
+          buildStatItem("Posted Listings", posts),
+          buildStatItem("Reviews", scores),
         ],
       ),
     );
@@ -168,7 +168,7 @@ class UserProfilePage extends StatelessWidget {
       color: Theme.of(context).scaffoldBackgroundColor,
       padding: EdgeInsets.only(top: 8.0),
       child: Text(
-        "Get in Touch with ${_fullName.split(" ")[0]},",
+        "Get in Touch with ${_fullName.split(" ")[0]}",
         style: TextStyle(fontFamily: 'Roboto', fontSize: 16.0),
       ),
     );
@@ -182,7 +182,7 @@ class UserProfilePage extends StatelessWidget {
           SizedBox(width: 10.0),
           Expanded(
             child: InkWell(
-              onTap: () => print("Check Listings"),
+              onTap: () => print("Check Requests"),
               child: Container(
                 height: 40.0,
                 decoration: BoxDecoration(
@@ -192,7 +192,7 @@ class UserProfilePage extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.all(10.0),
                     child: Text(
-                      "LISTINGS",
+                      "Requests",
                       style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ),
