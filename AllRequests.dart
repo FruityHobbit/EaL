@@ -28,7 +28,14 @@ class _MyHomePageState extends State<MyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('All Requests')),
+      appBar: new AppBar(
+        backgroundColor: Colors.lightBlue,
+        title: new Text('All Requests', style: TextStyle (
+          color: Colors.black,
+        )
+    ),
+        automaticallyImplyLeading: true,
+      ),
       body: _buildBody(context),
     );
   }
@@ -67,14 +74,14 @@ class _MyHomePageState extends State<MyPage> {
             title: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(record.lastName,style: TextStyle(color: Colors.black, fontSize: 16.0),),
-                Text(record.firstName,style: TextStyle(color: Colors.black, fontSize: 16.0),),
-                Text(record.phoneNumber,style: TextStyle(color: Colors.black, fontSize: 16.0),),
-                Text(record.caseNumber,style: TextStyle(color: Colors.black, fontSize: 16.0),),
-                Text(record.summary,style: TextStyle(color: Colors.black, fontSize: 16.0),),
-                Text(record.expect,style: TextStyle(color: Colors.black, fontSize: 16.0),),
-              ]
+                children: [
+                  Text(record.lastName,style: TextStyle(color: Colors.black, fontSize: 16.0),),
+                  Text(record.firstName,style: TextStyle(color: Colors.black, fontSize: 16.0),),
+                  Text(record.phoneNumber,style: TextStyle(color: Colors.black, fontSize: 16.0),),
+                  Text(record.caseNumber,style: TextStyle(color: Colors.black, fontSize: 16.0),),
+                  Text(record.summary,style: TextStyle(color: Colors.black, fontSize: 16.0),),
+                  Text(record.expect,style: TextStyle(color: Colors.black, fontSize: 16.0),),
+                ]
             ),
 
           ),
