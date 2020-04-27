@@ -138,7 +138,7 @@ class PostNewRequestState extends State<PostNewRequest>{
                       RaisedButton(
                           child: Text(
                             'Submit',
-                            style: TextStyle(color: Colors.blue, fontSize: 14,),
+                            style: TextStyle(color: Colors.blue, fontSize: 16,),
                           ),
                           onPressed: () {
                             if(!_formKey.currentState.validate()){
